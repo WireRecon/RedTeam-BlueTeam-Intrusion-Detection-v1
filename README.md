@@ -206,11 +206,11 @@ This section highlights suspicious process behavior observed using Sysinternals 
 **Figure 23** drills into the process properties of `powershell.exe`. The command line confirms it’s executing with<br>
 `-ExecutionPolicy Bypass -WindowStyle Hidden`, which is commonly used to evade detection. The **current directory** is also telling — it's set to:`C:\Users\IEUser\Downloads\Test Malware\AdobeUpdater\` This aligns directly with the malicious payload path.
 <br><sub>(Figure 23)</sub><br>
-<img src="analysis/screenshots/24.png" alt="Payload Directory" width="65%"><br>
+<img src="analysis/screenshots/24.png" alt="Payload Directory" width="55%"><br>
 
 **Figure 24** shows the **TCP/IP** tab of the same process, confirming it has an active network connection to:`192.168.78.129:HTTPS`<br>This indicates that the PowerShell process is maintaining a live connection — supporting evidence of a reverse shell callback.
 <br><sub>(Figure 24)</sub><br>
-<img src="analysis/screenshots/25.png" alt="Payload Shortcut" width="65%"><br>
+<img src="analysis/screenshots/25.png" alt="Payload Shortcut" width="55%"><br>
 
 **Figure 25** shows the PowerShell process’s working directory alongside the actual folder contents in File Explorer. The folder contains the Adobe files including the shortcut named `AdobeUpdater` — which was placed on the user’s desktop.This shortcut is what the user initially interacted with, triggering the chain of events. This visually confirms how the attack was disguised as a legitimate update and how the user was tricked into executing it.
 <br><sub>(Figure 25)</sub><br>
@@ -249,8 +249,8 @@ $client.Close()
 | Command & Control | T1071.001  | Reverse Shell over TCP             |
 
 ---
-
-## 🚧 Setup Instructions
+## **This section is not Completed** / **Full Lab Replication Coming Soon !**  
+## 🚧 Setup Instructions 
 
 1. **Start Netcat listener on Kali**
    ```bash
