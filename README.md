@@ -1,4 +1,4 @@
-## 💀 AdobeUpdater Intrusion Lab: Red Team Attack + Blue Team Detection 🛡️
+### 💀 AdobeUpdater Intrusion Lab: Red Team Attack + Blue Team Detection 🛡️
 
 Simulates a stealthy AdobeUpdater attack to demonstrate both red team tactics and blue team detection using real-world tools in a Windows environment.
 
