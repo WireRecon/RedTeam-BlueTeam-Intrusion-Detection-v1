@@ -21,10 +21,7 @@ I created everything from scratch:
 🧩 The walkthrough is split into two perspectives:
 - 💀 **Red Team:** Step-by-step attack execution
 - 🛡️ **Blue Team:** Detection and triage workflow
-
-
-### 🔧 **Lab Replication Coming Soon !**  
-### Want to build this exact lab yourself ? A full setup guide is in the works.
+- 
 ---
 
 ## 🌌 Technical Overview
@@ -37,7 +34,7 @@ This simulation uses a **fake Adobe Updater UI** (`.hta`) that deploys:
 - **Decoy visuals** to enhance realism  
 - **Base64 encoding and realistic icon spoofing**
 
-Intended for ethical red team demonstrations, SOC analyst training, and detection engineering labs.
+🧪 Intended for ethical red team demonstrations, SOC analyst training, and future expansion into a full detection engineering lab.
 
 The project directory is organized as follows:
 
