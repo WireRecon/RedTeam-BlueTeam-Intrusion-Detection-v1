@@ -1,6 +1,10 @@
 ### 💀 AdobeUpdater Intrusion Lab: Red Team Attack + Blue Team Detection 🛡️
+---
 
-Simulates a stealthy AdobeUpdater attack to demonstrate both red team tactics and blue team detection using real-world tools in a Windows environment.
+> ⚠️ This project is designed to showcase my understanding of both **offensive** and **defensive** security workflows.  
+> It was specifically created to demonstrate my skills to hiring managers for roles related to **SOC analysis**, and will later be expanded into a **full lab environment** that others can use to sharpen their detection skills.
+---
+> This lab focuses on one specific attack path and corresponding detection workflow. While there are many techniques I could have explored, this scenario was chosen to demonstrate core red team execution and blue team triage in a clear, focused, end-to-end simulation.
 
 ---
 
@@ -18,7 +22,6 @@ I created everything from scratch:
 - 💀 **Red Team:** Step-by-step attack execution
 - 🛡️ **Blue Team:** Detection and triage workflow
 
-> ⚠️ This project is designed to showcase my understanding of both offensive and defensive security workflows — especially relevant to SOC analyst roles.
 
 ### 🔧 **Lab Replication Coming Soon !**  
 ### Want to build this exact lab yourself ? A full setup guide is in the works.
@@ -280,9 +283,9 @@ This section highlights suspicious process behavior observed using Sysinternals 
 
 
 ## 🚧 This section is under construction. **Full Lab Replication Coming Soon !🚧**  
-
 This section will include a full step-by-step guide for recreating the AdobeUpdater attack lab, including payload setup, reverse shell callback, and detection tuning.
 
+---
 > ⚠️ Educational Use Only:  
 > The following code is shown as part of a red team simulation in a controlled lab environment. Do **not** use this on unauthorized systems.
 
