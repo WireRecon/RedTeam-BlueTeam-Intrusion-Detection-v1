@@ -196,7 +196,7 @@ This PowerShell command is used to maintain persistence by silently relaunching 
 ---
 ### 🔍 Process Inspection with Process Explorer
 
-This section highlights suspicious process behavior observed using Sysinternals Process Explorer. Each figure calls out relevant evidence tied to the attacker’s execution and persistence.
+This section highlights suspicious process behavior observed using Sysinternals Process Explorer. 
 
 ---
 **Figure 22** shows a suspicious `powershell.exe` process running under the user `IEUser`. This process is not expected under normal conditions and does not match any known authorized scripts.
