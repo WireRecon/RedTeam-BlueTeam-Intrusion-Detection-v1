@@ -1,4 +1,4 @@
-### 💀 AdobeUpdater Intrusion Lab: Red Team Attack + Blue Team Detection 🛡️
+### 💀 AdobeUpdater Intrusion Lab: Red Team Attack + Blue Team Detection v1 🛡️
 ---
 
 > ⚠️ This project was designed as a proof-of-concept (PoC) to showcase my understanding of both offensive and defensive security workflows. It was specifically created to demonstrate my skills to hiring managers for roles related to SOC analysis.
