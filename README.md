@@ -265,19 +265,6 @@ This section highlights suspicious process behavior observed using Sysinternals 
  
 ---
 
-## 📜 Certifications & Training
-
-- **Cyber Defense Certified Professional** – Vanguard 10 *(Level Effect)*  
-- **Practical Malware Analysis & Triage** – TCM Security  
-- **zSecurity Course Certification** – Ethical Hacking  
-- **Practical SOC Analyst Associate (PSAA)** *(planned)*  
-- **Associate of Applied Science** – Information Technology Specialist  
-  *University of Alaska Fairbanks – 2023*
-
-> Built, not bought. These certs represent real work — not checkbox training. Every one of them directly feeds into the lab above.
-
----
-
 
 ## 🚧 This section is under construction. **Full Lab Replication Coming Soon !🚧**  
 This section will include a full step-by-step guide for recreating the AdobeUpdater attack lab, including payload setup, reverse shell callback, and detection tuning.
