@@ -21,7 +21,7 @@ I created everything from scratch:
 🧩 The walkthrough is split into two perspectives:
 - 💀 **Red Team:** Step-by-step attack execution
 - 🛡️ **Blue Team:** Detection and triage workflow
-- 
+
 ---
 
 ## 🌌 Technical Overview
