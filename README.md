@@ -10,7 +10,7 @@
 
 ## 🧠 About This Lab
 
-This hands-on intrusion simulation demonstrates the *full attack chain* — from phishing execution to post-exploitation — followed by detailed detection and investigation using tools like **Wireshark**, **Autoruns**, and **Process Explorer**.
+This hands-on intrusion simulation demonstrates the *full attack chain* — from execution to post-exploitation — followed by detailed detection and investigation using tools like **Wireshark**, **Autoruns**, and **Process Explorer**.
 
 I created everything from scratch:
 - The **fake Adobe Updater** dropper (`.hta` with VBScript)
