@@ -56,7 +56,7 @@ The project directory is organized as follows:
 2. Payload runs an embedded VBScript, which:
  - **Launches a PowerShell reverse shell**
  - **Adds a `Run` registry key for persistence**
- - **Displays a fake update window to distract the user**
+ - **Displays a fake dowonloading progress bar window to distract the user**
 3. **Reverse shell is caught** by the attacker's Netcat listener.
 
 ---
