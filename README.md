@@ -18,10 +18,6 @@ I created everything from scratch:
 - **Registry persistence** and stealth icon spoofing
 - A custom **Python upload server** to simulate exfiltration
 
-🧩 The walkthrough is split into two perspectives:
-- 💀 **Red Team:** Step-by-step attack execution
-- 🛡️ **Blue Team:** Detection and triage workflow
-
   
 ---
 
@@ -51,6 +47,9 @@ The project directory is organized as follows:
 ├── README.md
 ```
 ## 🔄 How It Works
+## 🧩 The walkthrough is split into two perspectives:
+
+### 💀 **Red Team:** Step-by-step attack execution
 
 1. **User executes** the `.hta` payload mimicking a legitimate Adobe updater.
 2. Payload runs an embedded VBScript, which:
@@ -59,6 +58,18 @@ The project directory is organized as follows:
  - **Displays a fake dowonloading progress bar window to distract the user**
 3. **Reverse shell is caught** by the attacker's Netcat listener.
 
+--- 
+
+### 🛡️ **Blue Team:** Detection and triage workflow
+
+After simulating the attack, I pivoted to a defender’s perspective and analyzed the intrusion using:
+
+- **Autoruns:** Detected persistence via Registry Run key  
+- **Process Explorer:** Tracked the PowerShell child process  
+- **Wireshark:** Captured reverse shell TCP traffic  
+- **File analysis:** Verified dropped artifacts and decoy payloads  
+
+#### The goal was to demonstrate how a SOC analyst might uncover and triage a stealthy but simple attack.
 ---
 
 ## 👁️ Demo Walkthrough
