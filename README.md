@@ -79,7 +79,7 @@ After simulating the attack, I pivoted to a defender’s perspective and analyze
 *On the attacker’s side, two terminals are opened — one to catch a reverse shell as shown in Figure 1, and<br>
 one to handle file uploads as shown in Figure 2.*
 <br><sub>(Figure 1)</sub><br>
-<img src="analysis/screenshots/kt2.png" alt="Kali Terminal: Netcat Listener" width="75%"><br>
+<img src="analysis/screenshots_v1/Figure_1.png" alt="Kali Terminal: Netcat Listener" width="75%"><br>
 <em>In this terminal a Netcat listener is started on port 443 for the reverse shell.</em>
 <br><sub>(Figure 2)</sub><br>
 <img src="analysis/screenshots/kt1.png" alt="Kali Terminal: Upload Server" width="75%"><br>
