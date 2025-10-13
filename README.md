@@ -112,7 +112,7 @@ Next, the attacker runs the `ls` command to list the contents of the current wor
 *In Figure 7, the attacker begins backing out of the current directory using the `cd` command repeating `cd ..` until reaching the user's home directory.
 They then run the `ls` command again and spot the Documents directory witch is there target.*
 <br><sub>(Figure 7)</sub><br>
-<img src="analysis/screenshots-v1/Figure_7.png" alt="Directory listing" width="65%"><br>
+<img src="analysis/screenshots_v1/Figure_7.png" alt="Directory listing" width="65%"><br>
 
 *Figure 8 shows the attacker using the `cd` command to enter the Documents directory.*
 <br><sub>(Figure 8)</sub><br>
@@ -120,7 +120,7 @@ They then run the `ls` command again and spot the Documents directory witch is t
 
 *In Figure 9, we see the attacker has successfully navigated into the Documents folder. Inside, they spot a file named Passwords.txt.*
 <br><sub>(Figure 9)</sub><br>
-<img src="analysis/screenshots/Figure_9.png" alt="Accessing Documents" width="65%"><br>
+<img src="analysis/screenshots_v1/Figure_9.png" alt="Accessing Documents" width="65%"><br>
 
 ---
 
