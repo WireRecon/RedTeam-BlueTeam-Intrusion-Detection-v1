@@ -212,7 +212,7 @@ This section highlights suspicious process behavior observed using Sysinternals 
 ---
 **Figure 22** shows a suspicious `powershell.exe` process running under the user `IEUser`. This process is not expected under normal conditions and does not match any known authorized scripts.
 <br><sub>(Figure 22)</sub><br>
-<img src="analysis/screenshots/Figure_23.png" alt="TCP/IP Connections" width="65%"><br>
+<img src="analysis/screenshots/23.png" alt="TCP/IP Connections" width="65%"><br>
 
 **Figure 23** drills into the process properties of `powershell.exe`. The command line confirms it’s executing with<br>
 `-ExecutionPolicy Bypass -WindowStyle Hidden`, which is commonly used to evade detection. The **current directory** is also telling — it's set to:`C:\Users\IEUser\Downloads\Test Malware\AdobeUpdater\` This aligns directly with the malicious payload path.
