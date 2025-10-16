@@ -91,7 +91,7 @@ one to handle file uploads as shown in Figure 2.*
 ### 2. Fake Adobe Updater
 *The malicious shortcut on the desktop mimics a genuine Adobe software updater.*
 <br><sub>(Figure 3)</sub><br>
-![Desktop Shortcut](analysis/screenshots/2.png)<br> 
+![Desktop Shortcut](analysis/screenshots_v1/Figure_3.png)<br> 
 *When the victim clicks on the decoy updater as shown in Figure 3, a window with a fake "critical security updates" message appears.<br> 
 Once the OK button is clicked the connection is made back to the Netcat listener as shown in Figure 6*
 <br><sub>(Figure 4)</sub><br>
