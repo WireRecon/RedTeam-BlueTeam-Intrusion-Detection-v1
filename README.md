@@ -215,7 +215,7 @@ This section highlights suspicious process behavior observed using Sysinternals 
 <img src="analysis/screenshots/23.png" alt="TCP/IP Connections" width="65%"><br>
 
 **Figure 23** drills into the process properties of `powershell.exe`. The command line confirms it’s executing with<br>
-`-ExecutionPolicy Bypass -WindowStyle Hidden`, which is commonly used to evade detection. The **current directory** is also telling — it's set to:`C:\Users\IEUser\Downloads\Test Malware\AdobeUpdater\` This aligns directly with the malicious payload path.
+`-ExecutionPolicy Bypass -WindowStyle Hidden`, which is commonly used to evade detection. The **current directory** is also telling — it's set to:`C:\Users\IEUser\Downloads\Projects\Adobe_Demo_v1\` This aligns directly with the malicious payload path.
 <br><sub>(Figure 23)</sub><br>
 <img src="analysis/screenshots_v1/Figure_23.png" alt="Payload Directory" width="55%"><br>
 
@@ -248,7 +248,7 @@ This section highlights suspicious process behavior observed using Sysinternals 
 ### 🧹 Immediate Cleanup
 
 - **Delete the following malicious files from disk:**
- `C:\Users\IEUser\Downloads\Test Malware\AdobeUpdater\AdobeUpdater.hta`
+ `C:\Users\IEUser\Downloads\Projects\Adobe_Demo_v1\AdobeUpdater.hta`
 - Any downloaded reverse shell payloads saved to `%TEMP%`
 - **Remove registry-based persistence:**
   - Delete the `Run` key entry:
