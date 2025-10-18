@@ -7,6 +7,12 @@
 > This lab focuses on a single attack path and corresponding detection workflow. While many techniques could have been explored, this scenario was chosen to demonstrate core red team execution and blue team triage in a clear, focused, end-to-end simulation.
 
 ---
+## 🎬 Demo Video: AdobeUpdater Intrusion Lab
+
+This video demonstrates the full attack chain simulation — from execution to detection — inside a controlled lab environment.  
+It covers execution, persistence, and blue-team detection analysis using tools like Wireshark, Autoruns, and Process Explorer.
+
+[![Watch the Demo on YouTube](https://img.youtube.com/vi/aFsYAaQggRA/maxresdefault.jpg)](https://youtu.be/aFsYAaQggRA)
 
 ## 🧠 About This Lab
 
