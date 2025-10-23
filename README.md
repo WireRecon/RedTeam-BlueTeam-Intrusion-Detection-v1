@@ -12,7 +12,7 @@
 Please read the full write-up below first — it provides the context and technical breakdown for this demonstration.  
 After that, watch the video to see the lab in action.
 
-[![Watch the Demo on YouTube](https://img.youtube.com/vi/aFsYAaQggRA/maxresdefault.jpg)](https://youtu.be/aFsYAaQggRA)
+[![Watch the Demo on YouTube](https://img.youtube.com/vi/aFsYAaQggRA/maxresdefault.jpg)](https://youtu.be/tjaTFDatrG0)
 
 ## 🧠 About This Lab
 
