@@ -282,7 +282,7 @@ This section highlights suspicious process behavior observed using Sysinternals 
    `Enabled = 0`
  
 ---
-## 🧪 Known Limitations (v1)
+## ⚠️ Known Limitations (v1)
 
 This initial version was a basic but functional proof-of-concept, focused on UI deception and reverse shell delivery using HTA + PowerShell. While the techniques were rudimentary by design, they provided a strong foundation for the more advanced payload in development.
 
