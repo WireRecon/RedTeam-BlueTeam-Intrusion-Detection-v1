@@ -1,4 +1,4 @@
-### 💀 AdobeUpdater Intrusion Lab: Red Team Attack + Blue Team Detection v1 🛡️
+### AdobeUpdater Intrusion Lab: Red Team Attack + Blue Team Detection v1 🛡️
 ---
 
 > ⚠️ This project was designed as a proof-of-concept (PoC) to showcase my understanding of both offensive and defensive security workflows. It was specifically created to demonstrate my skills to hiring managers for roles related to SOC analysis.
@@ -15,7 +15,7 @@ After that, watch the video to see the lab in action.  Click the image 👇to wa
 [![Watch the Demo on YouTube](https://img.youtube.com/vi/og6FGrAh7qU/maxresdefault.jpg)](https://youtu.be/og6FGrAh7qU)
 
 
-## 🧠 About This Lab
+## About This Lab
 
 This hands-on intrusion simulation demonstrates the *full attack chain* — from execution to post-exploitation — followed by detailed detection and investigation using tools like **Wireshark**, **Autoruns**, and **Process Explorer**.
 
@@ -54,7 +54,7 @@ The project directory is organized as follows:
 ├── README.md
 ```
 ## 🔄 How It Works
-## 🧩 The walkthrough is split into two perspectives:
+## The walkthrough is split into two perspectives:
 
 ### 💀 **Red Team:** Step-by-step attack execution
 
@@ -79,7 +79,7 @@ After simulating the attack, I pivoted to a defender’s perspective and analyze
 #### The goal was to demonstrate how a SOC analyst might uncover and triage a stealthy but simple attack.
 ---
 
-## 👁️ Demo Walkthrough
+## Demo Walkthrough
 
 ### 1. Attacker Prepares for Callback and File Exfiltration 
 
