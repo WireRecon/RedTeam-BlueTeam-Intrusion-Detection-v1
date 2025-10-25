@@ -10,8 +10,8 @@
 ## 🎬 Demo Video: AdobeUpdater: Red Team Attack + Blue Team Detection v1 
 
 Please read the full write-up below first — it provides the context and technical breakdown for this demonstration.  
-After that, watch the video to see the lab in action.
-
+After that, watch the video to see the lab in action.  Click the image 👇to watch the full demo on YouTube: 
+ 
 [![Watch the Demo on YouTube](https://img.youtube.com/vi/og6FGrAh7qU/maxresdefault.jpg)](https://youtu.be/og6FGrAh7qU)
 
 
