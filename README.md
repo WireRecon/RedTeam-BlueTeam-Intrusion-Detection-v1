@@ -262,12 +262,12 @@ This section highlights suspicious process behavior observed using Sysinternals 
 <br><sub>(Figure 23)</sub><br>
 <img src="analysis/screenshots_v1/Figure_23.png" alt="Payload Directory" width="55%"><br>
 
-In **Figure 24** the **current directory** is `C:\Users\IEUser\Downloads\Projects\Adobe_Demo_v1\`, which is where this process was launched from.
+**Figure 24** shows the **current directory** where this process was launched from, which is  is `C:\Users\IEUser\Downloads\Projects\Adobe_Demo_v1\`
 <br><sub>(Figure 24)</sub><br>
 <img src="analysis/screenshots_v1/Figure_24.png" alt="Payload Directory" width="55%"><br>
 
 
-**Figure 25** shows the PowerShell process’s working directory alongside the actual folder contents in File Explorer. The folder contains the Adobe files including the shortcut named `AdobeUpdater` — which was placed on the user’s desktop.This shortcut is what the user initially interacted with, triggering the chain of events. This visually confirms how the attack was disguised as a legitimate update and how the user was tricked into executing it.
+**Figure 25** shows that when we follow the path from **Figure 24** it lead to the PowerShell process’s working directory alongside the actual folder contents in File Explorer. The folder contains the Adobe files including the shortcut named `AdobeUpdater.hta` — which was placed on the user’s desktop.This shortcut is what the user initially interacted with, triggering the chain of events. This visually confirms how the attack was disguised as a legitimate update and how the user was tricked into executing it.
 <br><sub>(Figure 25)</sub><br>
 <img src="analysis/screenshots_v1/Figure_25.png" alt="Attacker Listener" width="65%"><br>
 
