@@ -221,9 +221,8 @@ Next, in **Figure 17**, if we right-click on the filtered packet and choose **Fo
 <br><sub>(Figure 17)</sub><br>
 <img src="analysis/screenshots/18.png" alt="Exfiltrated Contents" width="65%"><br>
 
-In **Figure 18**, after following the HTTP stream, we can see the full contents of the `PUT` request — exposing exactly what the attacker exfiltrated.
-We also see other important details, such as the server responding with a `201 Created` status, confirming a successful upload. The `User-Agent` header shows the transfer was performed using `Python/3.11.9`, pointing to Python’s built-in `http.server` module.
-An internal host sending a `PUT` request over port 8080 using non-standard tools like this should raise red flags during packet inspection.
+In **Figure 18**, after following the HTTP stream, we can see the full contents of the `PUT` request -- exposing exactly what the attacker exfiltrated. We also see other important details, such as the server responding with a `201 Created` status, confirming a successful upload. <br> 
+The `User-Agent` header shows the upload was initiated using `PowerShell`, while the `Server` header confirms it was received by a `Python 3.11.9 SimpleHTTP server,` likely running Python’s built-in `http.server` module. An internal host sending a `PUT` request over port `8080` using non-standard tools like this should raise red flags during packet inspection.
 <br><sub>(Figure 18)</sub><br>
 <img src="analysis/screenshots_v1/Figure_18.png" alt="Autoruns Registry" width="65%"><br>
 
