@@ -255,12 +255,10 @@ This section highlights suspicious process behavior observed using Sysinternals 
 
 ---
 **Figure 22** shows a suspicious `powershell.exe` process running. Anytime we see PowerShell executing, it’s worth investigating.
-
 <br><sub>(Figure 22)</sub><br>
 <img src="analysis/screenshots/23.png" alt="TCP/IP Connections" width="65%"><br>
 
-**Figure 23** drills into the process properties of `powershell.exe`. The command line confirms it’s executing with<br>
-`-ExecutionPolicy Bypass -WindowStyle Hidden`, which is commonly used to evade detection. The **current directory** is also telling — it's set to:`C:\Users\IEUser\Downloads\Projects\Adobe_Demo_v1\` This aligns directly with the malicious payload path.
+**Figure 23** drills into the process properties of `powershell.exe`. The command line shows `-w hidden -nop -c`, indicating a hidden window, no profile, and an inline command — common flags used to avoid user visibility. The payload opens a `Net.Sockets.TCPClient` to `192.168.78.129:443`, hands remote input to `Invoke-Expression` (`iex`), and sends command output back to the attacker — a classic interactive reverse shell.
 <br><sub>(Figure 23)</sub><br>
 <img src="analysis/screenshots_v1/Figure_23.png" alt="Payload Directory" width="55%"><br>
 
