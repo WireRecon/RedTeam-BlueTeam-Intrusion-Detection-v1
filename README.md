@@ -263,6 +263,7 @@ This section highlights suspicious process behavior observed using Sysinternals 
 <img src="analysis/screenshots_v1/Figure_23.png" alt="Payload Directory" width="55%"><br>
 
 In **Figure 24** the **current directory** is `C:\Users\IEUser\Downloads\Projects\Adobe_Demo_v1\`, which is where this process was launched from.
+<br><sub>(Figure 24)</sub><br>
 <img src="analysis/screenshots_v1/Figure_24.png" alt="Payload Directory" width="55%"><br>
 
 
