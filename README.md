@@ -262,13 +262,16 @@ This section highlights suspicious process behavior observed using Sysinternals 
 <br><sub>(Figure 23)</sub><br>
 <img src="analysis/screenshots_v1/Figure_23.png" alt="Payload Directory" width="55%"><br>
 
+In **Figure 24** the **current directory** is `C:\Users\IEUser\Downloads\Projects\Adobe_Demo_v1\`, which is where this process was launched from.
+<img src="analysis/screenshots_v1/Figure_24.png" alt="Payload Directory" width="55%"><br>
 
-**Figure 24** shows the PowerShell process’s working directory alongside the actual folder contents in File Explorer. The folder contains the Adobe files including the shortcut named `AdobeUpdater` — which was placed on the user’s desktop.This shortcut is what the user initially interacted with, triggering the chain of events. This visually confirms how the attack was disguised as a legitimate update and how the user was tricked into executing it.
-<br><sub>(Figure 24)</sub><br>
+
+**Figure 25** shows the PowerShell process’s working directory alongside the actual folder contents in File Explorer. The folder contains the Adobe files including the shortcut named `AdobeUpdater` — which was placed on the user’s desktop.This shortcut is what the user initially interacted with, triggering the chain of events. This visually confirms how the attack was disguised as a legitimate update and how the user was tricked into executing it.
+<br><sub>(Figure 25)</sub><br>
 <img src="analysis/screenshots_v1/Figure_25.png" alt="Attacker Listener" width="65%"><br>
 
-**Figure 25** shows the **TCP/IP** tab of the same process, confirming it has an active network connection to:`192.168.78.129:HTTPS`<br>This indicates that the PowerShell process is maintaining a live connection — supporting evidence of a reverse shell callback.
-<br><sub>(Figure 25)</sub><br>
+**Figure 26** shows the **TCP/IP** tab of the same process, confirming it has an active network connection to:`192.168.78.129:HTTPS`<br>This indicates that the PowerShell process is maintaining a live connection — supporting evidence of a reverse shell callback.
+<br><sub>(Figure 26)</sub><br>
 <img src="analysis/screenshots/25.png" alt="Payload Shortcut" width="55%"><br>
 
 
