@@ -258,7 +258,7 @@ This section highlights suspicious process behavior observed using Sysinternals 
 <br><sub>(Figure 22)</sub><br>
 <img src="analysis/screenshots/23.png" alt="TCP/IP Connections" width="65%"><br>
 
-**Figure 23** drills into the process properties of `powershell.exe`. The command line shows `-w hidden -nop -c`, indicating a hidden window, no profile, and an inline command — common flags used to avoid user visibility. The payload opens a `Net.Sockets.TCPClient` to `192.168.78.129:443`, hands remote input to `Invoke-Expression` (`iex`), and sends command output back to the attacker — a classic interactive reverse shell.
+**Figure 23** drills into the process properties of `powershell.exe`. The command line shows `-w hidden -nop -c`, indicating a hidden window, no profile, and an inline command, common flags used to avoid user visibility. The payload opens a `Net.Sockets.TCPClient` to `192.168.78.129:443`, hands remote input to `Invoke-Expression` (`iex`), and sends command output back to the attacker -- a classic interactive reverse shell.
 <br><sub>(Figure 23)</sub><br>
 <img src="analysis/screenshots_v1/Figure_23.png" alt="Payload Directory" width="55%"><br>
 
