@@ -267,7 +267,8 @@ This section highlights suspicious process behavior observed using Sysinternals 
 <img src="analysis/screenshots_v1/Figure_24.png" alt="Payload Directory" width="55%"><br>
 
 
-Next **Figure 25** shows that when we follow the path from **`Figure 24`** it lead to the PowerShell process’s working directory alongside the actual folder contents in File Explorer. The folder contains the Adobe files including the shortcut named `AdobeUpdater.hta` — which was placed on the user’s desktop. This shortcut is what the user initially interacted with, triggering the chain of events. This visually confirms how the attack was disguised as a legitimate update and how the user was tricked into executing it.
+Next, **Figure 25** shows that when we follow the path from `Figure 24,` it leads to the PowerShell process’s working directory along with the actual folder contents in File Explorer. The folder contains the Adobe files, including the shortcut named `AdobeUpdater.hta` --
+which was placed on the user’s desktop. This shortcut is what the user initially interacted with, triggering the chain of events. This visually confirms how the attack was disguised as a legitimate update and how the user was tricked into executing it.
 <br><sub>(Figure 25)</sub><br>
 <img src="analysis/screenshots_v1/Figure_25.png" alt="Attacker Listener" width="65%"><br>
 
@@ -282,13 +283,13 @@ Next **Figure 25** shows that when we follow the path from **`Figure 24`** it le
 
 ## 📃 MITRE ATT&CK Mapping
 
-| Technique         | ID         | Description                        |
-|------------------|------------|------------------------------------|
-| Initial Access    | T1204.002  | User Execution via HTA             |
-| Execution         | T1059.001  | PowerShell                         |
-| Persistence       | T1547.001  | Registry Run Key                   |
-| Defense Evasion   | T1218.005  | LOLBAS via `wscript.exe`           |
-| Command & Control | T1071.001  | Reverse Shell over TCP             |
+| Technique         | ID         | Description                                    |
+|------------------:|:-----------|:-----------------------------------------------|
+| Initial Access    | T1204.002  | User execution — malicious file (HTA)          |
+| Execution         | T1059.001  | PowerShell (inline one-liner)                  |
+| Persistence       | T1547.001  | Registry Run Keys / Startup Folder             |
+| Defense Evasion   | T1218.005  | Mshta (proxy execution of an .hta)             |
+| Command & Control | T1071      | Application Layer Protocol (custom TCP C2)     |
 
 
 ---
