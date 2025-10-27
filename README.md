@@ -296,13 +296,13 @@ which was placed on the user’s desktop. This shortcut is what the user initial
 
 ## 🔧 Remediation and Recommendations
 
-### 🧹 Immediate Cleanup
+## 🧹 Immediate Cleanup
 
 - **Delete the following malicious files from disk:**
- `C:\Users\IEUser\Downloads\Projects\Adobe_Demo_v1\AdobeUpdater.hta`
-- Any downloaded reverse shell payloads saved to `%TEMP%`
+  - `C:\Users\IEUser\Downloads\Projects\Adobe_Demo_v1\AdobeUpdater.hta`
+
 - **Remove registry-based persistence:**
-  - Delete the `Run` key entry:
+  - Delete the Run key entry:  
     `HKCU\Software\Microsoft\Windows\CurrentVersion\Run\AdobeTaskHelper`
 
 ---
