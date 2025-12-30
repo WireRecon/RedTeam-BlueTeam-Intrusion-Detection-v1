@@ -50,7 +50,7 @@ The project directory is organized as follows:
 │ ├── adb1.png # Decoy loading screen
 │ └── .gitkeep
 ├── analysis/
-│ └── screenshots/ # All demo screenshots (1.png–27.png + kt1.png/kt2.png)
+│ └── screenshots/ # All demo screenshots 
 ├── README.md
 ```
 ## 🔄 How It Works
