@@ -326,15 +326,15 @@ which was placed on the user’s desktop. This shortcut is what the user initial
    `Enabled = 0`
  
 ---
-## ⚠️ Known Limitations (v1)
+## Known Limitations (v1)
 
 This initial version was a basic but functional proof-of-concept, focused on UI deception and reverse shell delivery using HTA + PowerShell. While the techniques were rudimentary by design, they provided a strong foundation for the more advanced payload in development.
 
-- ❌ Base64 encoding had reliability issues in some setups  
-- ❌ No AMSI bypass or evasion layers included  
-- ⚠️ Persistence was basic (registry Run key only)  
+- Base64 encoding had reliability issues in some setups  
+- No AMSI bypass or evasion layers included  
+- Persistence was basic (registry Run key only)  
 
-> 🚧 This project is being followed up with a more advanced version using **WMI event subscriptions**, **multi-stage payloads**, and **stealthier execution methods**.
+>  This project is being followed up with a more advanced version using **WMI event subscriptions**, **multi-stage payloads**, and **stealthier execution methods**.
 
 ---
 
@@ -344,6 +344,6 @@ This initial version was a basic but functional proof-of-concept, focused on UI 
 - Avoid running on production systems
 - Always use in an isolated lab environment
 
-> ⚠️ **Disclaimer:** For educational use only. Do not deploy on unauthorized systems.
+>  **Disclaimer:** For educational use only. Do not deploy on unauthorized systems.
 
 ---
