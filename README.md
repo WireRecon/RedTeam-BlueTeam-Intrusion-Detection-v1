@@ -1,4 +1,4 @@
-### AdobeUpdater Intrusion Lab: Red Team Attack + Blue Team Detection v1 🛡️
+### AdobeUpdater Intrusion Lab: Red Team Attack + Blue Team Detection v1 
 ---
 
 > ⚠️ This project was designed as a proof-of-concept (PoC) to showcase my understanding of both offensive and defensive security workflows. It was specifically created to demonstrate my skills to hiring managers for roles related to SOC analysis.
@@ -227,7 +227,7 @@ The `User-Agent` header shows the upload was initiated using `PowerShell`, while
 <img src="analysis/screenshots_v1/Figure_18.png" alt="Autoruns Registry" width="65%"><br>
 
 ---
-### 🔍 Persistence Detection via Autoruns and Registry Analysis
+### Persistence Detection via Autoruns and Registry Analysis
 
 In this section, we identify how the attacker achieved persistence using a registry-based autorun entry. The screenshots below walk through the detection process using Sysinternals Autoruns and the Windows Registry Editor.
 
@@ -249,7 +249,7 @@ This PowerShell command is used to maintain persistence by silently relaunching 
 <img src="analysis/screenshots/22.png" alt="Process Image Path" width="65%"><br>
 
 ---
-### 🔍 Process Inspection with Process Explorer
+### Process Inspection with Process Explorer
 
 This section highlights suspicious process behavior observed using Sysinternals Process Explorer. 
 
@@ -281,7 +281,7 @@ which was placed on the user’s desktop. This shortcut is what the user initial
 ---
 
 
-## 📃 MITRE ATT&CK Mapping
+## MITRE ATT&CK Mapping
 
 | Technique         | ID         | Description                                    |
 |------------------:|:-----------|:-----------------------------------------------|
@@ -294,9 +294,9 @@ which was placed on the user’s desktop. This shortcut is what the user initial
 
 ---
 
-## 🔧 Remediation and Recommendations
+##  Remediation and Recommendations
 
-## 🧹 Immediate Cleanup
+##  Immediate Cleanup
 
 - **Delete the following malicious files from disk:**
   - `C:\Users\IEUser\Downloads\Projects\Adobe_Demo_v1\AdobeUpdater.hta`
@@ -307,7 +307,7 @@ which was placed on the user’s desktop. This shortcut is what the user initial
 
 ---
 
-### 🔐 Credential Response
+### Credential Response
 
 - **Passwords.txt was exfiltrated.** All credentials listed in that file must be considered compromised and changed immediately.
 - Review logs to confirm there were no unauthorized logins using the compromised credentials.
@@ -316,7 +316,7 @@ which was placed on the user’s desktop. This shortcut is what the user initial
 
 ---
 
-### 🔒 System Hardening
+### System Hardening
 
 - **Block outbound traffic** to the attacker IP: `192.168.78.129` (or any future simulation IPs).
 - **Restrict execution of `.hta` and `.vbs` files** via Group Policy or application allowlisting.
