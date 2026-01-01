@@ -1,7 +1,7 @@
 ### AdobeUpdater Intrusion Lab: Red Team Attack + Blue Team Detection v1 
 ---
 
-> ⚠️ This project was designed as a proof-of-concept (PoC) to showcase my understanding of both offensive and defensive security workflows. It was specifically created to demonstrate my skills to hiring managers for roles related to SOC analysis.
+>  This project was designed as a proof-of-concept (PoC) to showcase my understanding of both offensive and defensive security workflows. It was specifically created to demonstrate my skills to hiring managers for roles related to SOC analysis.
 > It's also part of a larger series — a more advanced version using WMI persistence and multi-stage execution is currently in the works.
 ---
 > This lab focuses on a single attack path and corresponding detection workflow. While many techniques could have been explored, this scenario was chosen to demonstrate core red team execution and blue team triage in a clear, focused, end-to-end simulation.
@@ -299,8 +299,8 @@ which was placed on the user’s desktop. This shortcut is what the user initial
 ##  Immediate Cleanup
 
 - **Delete the following malicious files from disk:**
-  - `C:\Users\IEUser\Downloads\Projects\Adobe_Demo_v1\AdobeUpdater.hta`
-
+  - `AdobeUpdater.hta`
+  
 - **Remove registry-based persistence:**
   - Delete the Run key entry:  
     `HKCU\Software\Microsoft\Windows\CurrentVersion\Run\AdobeTaskHelper`
