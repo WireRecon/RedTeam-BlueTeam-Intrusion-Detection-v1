@@ -300,6 +300,9 @@ which was placed on the user’s desktop. This shortcut is what the user initial
 
 - **Delete the following malicious files from disk:**
   - `AdobeUpdater.hta`
+
+ - **Change user credentials for** 
+   - `IEUser`
   
 - **Remove registry-based persistence:**
   - Delete the Run key entry:  
