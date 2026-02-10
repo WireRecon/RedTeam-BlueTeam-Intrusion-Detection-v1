@@ -276,7 +276,15 @@ which was placed on the user’s desktop. This shortcut is what the user initial
 <br><sub>(Figure 26)</sub><br>
 <img src="analysis/screenshots/25.png" alt="Payload Shortcut" width="55%"><br>
 
+Detection coverage:
+- HTA application markers
+- WScript.Shell usage
+- Hidden PowerShell execution
+- Run-key persistence (HKCU\...\Run)
+- TCPClient reverse-shell style networking
 
+Full technical write-up and rule:
+https://github.com/WireRecon/Detection-Engineering/tree/main/yara/docs
 
 ---
 
@@ -334,15 +342,6 @@ A YARA rule was developed to detect the HTA dropper used in this lab.
 Rule:
 - `MAL_WIN_HTA_AdobeUpdater_Lab_Dropper.yar`
 
-Detection coverage:
-- HTA application markers
-- WScript.Shell usage
-- Hidden PowerShell execution
-- Run-key persistence (HKCU\...\Run)
-- TCPClient reverse-shell style networking
-
-Full technical write-up and rule:
-https://github.com/WireRecon/Detection-Engineering/tree/main/yara/docs
 
  
 ---
