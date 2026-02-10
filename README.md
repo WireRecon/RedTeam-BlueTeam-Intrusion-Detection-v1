@@ -327,6 +327,23 @@ which was placed on the user’s desktop. This shortcut is what the user initial
  - Set the following registry key: 
    `HKLM\Software\Microsoft\Windows Script Host\Settings`
    `Enabled = 0`
+## Detection Engineering
+
+A YARA rule was developed to detect the HTA dropper used in this lab.
+
+Rule:
+- `MAL_WIN_HTA_AdobeUpdater_Lab_Dropper.yar`
+
+Detection coverage:
+- HTA application markers
+- WScript.Shell usage
+- Hidden PowerShell execution
+- Run-key persistence (HKCU\...\Run)
+- TCPClient reverse-shell style networking
+
+Full technical write-up and rule:
+https://github.com/WireRecon/Detection-Engineering/tree/main/yara/docs
+
  
 ---
 ## Known Limitations (v1)
