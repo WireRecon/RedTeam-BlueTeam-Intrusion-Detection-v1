@@ -280,8 +280,7 @@ which was placed on the user’s desktop. This shortcut is what the user initial
 
 A YARA rule was developed to detect the HTA dropper used in this lab.
 
-Rule:
-- `MAL_WIN_HTA_AdobeUpdater_Lab_Dropper.yar`
+Rule: `MAL_WIN_HTA_AdobeUpdater_Lab_Dropper.yar`
 
 Detection coverage:
 - HTA application markers
@@ -342,13 +341,6 @@ https://github.com/WireRecon/Detection-Engineering/tree/main/yara/docs
  - Set the following registry key: 
    `HKLM\Software\Microsoft\Windows Script Host\Settings`
    `Enabled = 0`
-## Detection Engineering
-
-A YARA rule was developed to detect the HTA dropper used in this lab.
-
-Rule:
-- `MAL_WIN_HTA_AdobeUpdater_Lab_Dropper.yar`
-
 
  
 ---
