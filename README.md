@@ -7,12 +7,6 @@
 > This lab focuses on a single attack path and corresponding detection workflow. While many techniques could have been explored, this scenario was chosen to demonstrate core red team execution and blue team triage in a clear, focused, end-to-end simulation.
 
 ---
-##  Demo Video: AdobeUpdater: Red Team Attack + Blue Team Detection v1 
-
-Please read the full write-up below first — it provides the context and technical breakdown for this demonstration.  
-After that, watch the video to see the lab in action.  : 
- 
-
 
 
 ## About This Lab
