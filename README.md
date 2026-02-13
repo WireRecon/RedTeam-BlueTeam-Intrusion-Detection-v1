@@ -8,9 +8,9 @@
 
 ---
 
-<div align="center">
+<!--<div align="center"> -->
 <img src="analysis/screenshots_v1/TumbNailBrand v1.png" alt="Cover Pictere" width="75%"><br>
-</div>
+<!-- </div> -->
 
 ## About This Lab
 
