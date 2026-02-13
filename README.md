@@ -8,6 +8,7 @@
 
 ---
 
+<img src="analysis/screenshots_v1/v2_lab.png" alt="Kali Terminal: Netcat Listener" width="75%"><br>
 
 ## About This Lab
 
