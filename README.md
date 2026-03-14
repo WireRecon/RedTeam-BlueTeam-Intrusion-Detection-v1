@@ -33,7 +33,7 @@ This simulation uses a **fake Adobe Updater UI** (`.hta`) that deploys:
 - **Registry Run key persistence**  
 - **Stealthy VBScript execution**  
 - **Decoy visuals** to enhance realism  
-- **Base64 encoding and realistic Updater**
+- **Base64 encoding and realistic Downloading bar**
 
 ---
 The project directory is organized as follows:
