@@ -20,7 +20,7 @@ I created everything from scratch:
 - The **fake Adobe Updater** dropper (`.hta` with VBScript)
 - Embedded **Base64-encoded PowerShell** for a reverse shell
 - **Registry persistence** and stealth fake Adobe Updater
-- A custom **Python upload server** to simulate exfiltration
+- A custom **Python upload server** for exfiltration
 
   
 ---
