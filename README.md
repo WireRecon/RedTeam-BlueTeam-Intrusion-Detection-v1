@@ -287,7 +287,7 @@ Detection coverage:
 - TCPClient reverse-shell style networking
 
 Full technical write-up and rule:
-https://github.com/WireRecon/Detection-Engineering/tree/main/yara/docs
+yara/docs/AdobeUpdater_HTA_Dropper_Writeup.mdyara/docs/AdobeUpdater_HTA_Dropper_Writeup.md
 
 ---
 
