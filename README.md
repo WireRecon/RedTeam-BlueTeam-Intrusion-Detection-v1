@@ -287,8 +287,8 @@ Detection coverage:
 - TCPClient reverse-shell style networking
 
 Full technical write-up and rule:
-- [MAL_WIN_HTA_AdobeUpdater_Lab_Dropper.yar](yara/MAL_WIN_HTA_AdobeUpdater_Lab_Dropper.yar)
-- [MAL_WIN_HTA_AdobeUpdater_Lab_Dropper.md](yara/docs/MAL_WIN_HTA_AdobeUpdater_Lab_Dropper.md)
+- [MAL_WIN_HTA_AdobeUpdater_Lab_Dropper.yar](../yara/MAL_WIN_HTA_AdobeUpdater_Lab_Dropper.yar)
+- [AdobeUpdater_HTA_Dropper_Writeup.md](../yara/docs/AdobeUpdater_HTA_Dropper_Writeup.md)
 
 ---
 
