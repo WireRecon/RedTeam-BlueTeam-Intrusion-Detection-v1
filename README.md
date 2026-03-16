@@ -265,7 +265,7 @@ This section highlights suspicious process behavior observed using Sysinternals 
 
 
 Next, **Figure 25** shows that when we follow the path from `Figure 24,` it leads to the PowerShell process’s working directory along with the actual folder contents in File Explorer. The folder contains the Adobe files, including the shortcut named `AdobeUpdater.hta` --
-which was placed on the user’s desktop. This shortcut is what the user initially interacted with, triggering the chain of events. This visually confirms how the attack was disguised as a legitimate update and how the user was tricked into executing it.
+which was placed on the user’s desktop. This shortcut is what the user initially interacted with, triggering the chain of events. This visually confirms how the attack was disguised as a legitimate update.
 <br><sub>(Figure 25)</sub><br>
 <img src="analysis/screenshots_v1/Figure_25.png" alt="Attacker Listener" width="65%"><br>
 
