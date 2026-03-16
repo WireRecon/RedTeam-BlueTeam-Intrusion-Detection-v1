@@ -241,7 +241,8 @@ Next, in **Figure 20** we can right-click the suspicious entry in Autoruns and c
 <img src="analysis/screenshots/21.png" alt="Process Explorer Powershell" width="65%"><br>
 
 **Figure 21** confirms the full registry key using **Regedit**. The `AdobeTaskHelper` entry executes the following command at startup:<br>`powershell.exe -ExecutionPolicy Bypass -WindowStyle Hidden -Command ...`
-This PowerShell command is used to maintain persistence by silently relaunching the attacker’s reverse shell payload on system boot. Combined with the misleading name and stealthy execution, this is a textbook example of registry-based persistence via PowerShell masquerading.
+This PowerShell command is used to maintain persistence by silently relaunching the attacker’s reverse shell payload on system boot.
+
 <br><sub>(Figure 21)</sub><br>
 <img src="analysis/screenshots/22.png" alt="Process Image Path" width="65%"><br>
 
