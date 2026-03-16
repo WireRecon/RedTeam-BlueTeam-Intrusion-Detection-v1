@@ -81,7 +81,7 @@ After simulating the attack, I pivoted to a defender’s perspective and analyze
 
 ### 1. Attacker Prepares for Callback and File Exfiltration 
 
-*On the attacker’s side, two terminals are opened — one to catch a reverse shell as shown in Figure 1, and<br>
+*On the attacker’s side, two terminals are opened - one to catch a reverse shell as shown in Figure 1, and<br>
 one to handle file uploads as shown in Figure 2.*
 <br><sub>(Figure 1)</sub><br><em>In this terminal, the attacker starts a Python upload server on port 8080.</em>
 <img src="analysis/screenshots_v1/Figure_1.png" alt="Kali Terminal: Netcat Listener" width="75%"><br>
