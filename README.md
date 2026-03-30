@@ -9,7 +9,9 @@
 ---
 
 <!--<div align="center"> -->
-[![Watch the demo on YouTube](analysis/screenshots_v1/TumbNailBrand%20v1.png)](https://youtu.be/uv4zQ3GkP2g)
+<a href="https://youtu.be/uv4zQ3GkP2g">
+  <img src="analysis/screenshots_v1/TumbNailBrand v1.png" alt="Watch the demo on YouTube" width="75%"><br>
+</a>
 <!-- </div> -->
 
 ## About This Lab
