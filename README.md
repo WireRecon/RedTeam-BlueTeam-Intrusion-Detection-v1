@@ -9,7 +9,7 @@
 ---
 
 <!--<div align="center"> -->
-<img src="analysis/screenshots_v1/TumbNailBrand v1.png" alt="Cover Pictere" width="75%"><br>
+[![Watch the demo on YouTube](analysis/screenshots_v1/TumbNailBrand%20v1.png)](https://youtu.be/uv4zQ3GkP2g)
 <!-- </div> -->
 
 ## About This Lab
