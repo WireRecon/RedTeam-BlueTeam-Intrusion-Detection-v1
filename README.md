@@ -7,7 +7,7 @@
 > This lab focuses on a single attack path and corresponding detection workflow. While many techniques could have been explored, this scenario was chosen to demonstrate core red team execution and blue team triage in a clear, focused, end-to-end simulation.
 
 ---
-## 🎬 Click the image below to watch the video demo that goes along with this write-up
+## 🎬 Click the image below to watch the video demo that goes along with this write-up 👇
 
 <div align="center">
   <a href="https://youtu.be/uv4zQ3GkP2g">
